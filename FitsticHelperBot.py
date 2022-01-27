@@ -1,4 +1,4 @@
-from requests import *
+##from requests import *
 from telegram import *
 from telegram.ext import *
 
@@ -23,7 +23,7 @@ def button(update: Update, context: CallbackContext) -> None:
   
     query.answer()
     if query.data=='1':
-        query.edit_message_text(text=f"Ecco il link del programma\nhttps://docs.google.com/spreadsheets/d/1kOQY13lzyX8CF9iBRnAZGr8Xz3hUtca6PmQV0_ZUsfE/edit#gid=537086263")
+        query.edit_message_text(text=f"Ecco il link del programma:\nhttps://docs.google.com/spreadsheets/d/1kOQY13lzyX8CF9iBRnAZGr8Xz3hUtca6PmQV0_ZUsfE/edit#gid=537086263")
     elif query.data=='2':
         query.edit_message_text(text=f"Questo bot è stato creato da Alessandro Fogli Iseppe con Python, se avete in mente delle implementazioni"
         + " scrivetemi in privato")
