@@ -1,5 +1,6 @@
-##from requests import *
+from requests import *
 from telegram import *
+from telegram import message
 from telegram.ext import *
 
 with open('token.txt') as tkn:
@@ -16,7 +17,8 @@ helpText="/help"
 
 def start(update: Update, context: CallbackContext):
     buttons=[[InlineKeyboardButton("Programma", callback_data='1')], [InlineKeyboardButton(text="Informazioni", callback_data='2')], [InlineKeyboardButton(text="Crediti", callback_data='3')], [InlineKeyboardButton(text="FAD", callback_data='4')] ]
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Seleziona un pulsante per iniziare",
+    userFirstName = str(update.message.from_user.username)
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Ciao " + userFirstName + "!" + "\nSeleziona un pulsante per iniziare ",
     reply_markup=InlineKeyboardMarkup(buttons))
 
 def button(update: Update, context: CallbackContext) -> None:
