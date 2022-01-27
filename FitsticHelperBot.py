@@ -4,7 +4,7 @@ from telegram.ext import *
 
 with open('token.txt') as tkn:
     token = tkn.read()
-updater = Updater(token="5160047465:AAFXJS1IkbT-Cr_4NuitOUhXrDvZ3W3ysE8")
+updater = Updater(token)
 dispatcher = updater.dispatcher
 
 
