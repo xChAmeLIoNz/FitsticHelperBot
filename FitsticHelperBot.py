@@ -15,9 +15,10 @@ easterEggText="/easteregg"
 fadText="/fad"
 helpText="/help"
 
+##Il bot deve usare l username dell'utente o il first name?
 def start(update: Update, context: CallbackContext):
     buttons=[[InlineKeyboardButton("Programma", callback_data='1')], [InlineKeyboardButton(text="Informazioni", callback_data='2')], [InlineKeyboardButton(text="Crediti", callback_data='3')], [InlineKeyboardButton(text="FAD", callback_data='4')] ]
-    userFirstName = str(update.message.from_user.username)
+    userFirstName = str(update.message.from_user.first_name)
     context.bot.send_message(chat_id=update.effective_chat.id, text="Ciao " + userFirstName + "!" + "\nSeleziona un pulsante per iniziare ",
     reply_markup=InlineKeyboardMarkup(buttons))
 
