@@ -9,6 +9,7 @@ dispatcher = updater.dispatcher
 programmaText="/programma"
 informazioniText="/informazioni"
 easterEggText="/easteregg"
+fadText="/fad"
 
 def start(update: Update, context: CallbackContext):
     buttons=[[InlineKeyboardButton("Programma", callback_data='1')], [InlineKeyboardButton(text="Informazioni", callback_data='2')], [InlineKeyboardButton(text="Crediti", callback_data='3')]]
