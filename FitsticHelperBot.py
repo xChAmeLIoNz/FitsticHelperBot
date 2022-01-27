@@ -12,7 +12,7 @@ easterEggText="/easteregg"
 fadText="/fad"
 
 def start(update: Update, context: CallbackContext):
-    buttons=[[InlineKeyboardButton("Programma", callback_data='1')], [InlineKeyboardButton(text="Informazioni", callback_data='2')], [InlineKeyboardButton(text="Crediti", callback_data='3')]]
+    buttons=[[InlineKeyboardButton("Programma", callback_data='1')], [InlineKeyboardButton(text="Informazioni", callback_data='2')], [InlineKeyboardButton(text="Crediti", callback_data='3')], [InlineKeyboardButton(text="FAD", callback_data='4')] ]
     context.bot.send_message(chat_id=update.effective_chat.id, text="Seleziona un pulsante per iniziare",
     reply_markup=InlineKeyboardMarkup(buttons))
 
@@ -27,8 +27,10 @@ def button(update: Update, context: CallbackContext) -> None:
     elif query.data=='2':
         query.edit_message_text(text=f"Questo bot è stato creato da Alessandro Fogli Iseppe con Python, se avete in mente delle implementazioni"
         + " scrivetemi in privato")
-    else:
+    elif query.data=='3':
         query.edit_message_text(text=f"Collaboratori: \nFrancesco Banzi @BanzF (InlineKeyboardButton)")
+    elif query.data=='4':
+        query.edit_message_text(text=f"Ecco il link del portale FAD: \nhttps://elearning.cfiformazione.it/")
 
 def messageHandler(update: Update, context: CallbackContext):
     if programmaText in update.message.text:
@@ -38,6 +40,8 @@ def messageHandler(update: Update, context: CallbackContext):
         + " scrivetemi in privato")
     if easterEggText in update.message.text:
         update.message.reply_text("Israele è uno stato illegittimo, e chi sostiene il contrario è un rabbino.")
+    if fadText in update.message.text:
+        update.message.reply_text("Ecco il link del portale FAD: \nhttps://elearning.cfiformazione.it/")
     
 
 dispatcher.add_handler(CommandHandler("start", start))
