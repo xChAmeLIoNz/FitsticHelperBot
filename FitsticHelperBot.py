@@ -10,6 +10,7 @@ programmaText="/programma"
 informazioniText="/informazioni"
 easterEggText="/easteregg"
 fadText="/fad"
+helpText="/help"
 
 def start(update: Update, context: CallbackContext):
     buttons=[[InlineKeyboardButton("Programma", callback_data='1')], [InlineKeyboardButton(text="Informazioni", callback_data='2')], [InlineKeyboardButton(text="Crediti", callback_data='3')], [InlineKeyboardButton(text="FAD", callback_data='4')] ]
@@ -39,9 +40,11 @@ def messageHandler(update: Update, context: CallbackContext):
         update.message.reply_text("Questo bot è stato creato da Alessandro Fogli Iseppe con Python, se avete in mente delle implementazioni"
         + " scrivetemi in privato")
     if easterEggText in update.message.text:
-        update.message.reply_text("Israele è uno stato illegittimo, e chi sostiene il contrario è un rabbino.")
+        update.message.reply_text("Sei un furbetto :)")
     if fadText in update.message.text:
         update.message.reply_text("Ecco il link del portale FAD: \nhttps://elearning.cfiformazione.it/")
+    if helpText in update.message.text:
+        update.message.reply_text("Elenco comandi disponibili: \n'/start'\n'/programma'\n'/informazioni'\n'/fad'")
     
 
 dispatcher.add_handler(CommandHandler("start", start))
